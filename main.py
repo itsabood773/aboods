@@ -21,4 +21,4 @@ def gridT(pos):
     
     
 gridT(pos)
-input("end")
+input("end.")

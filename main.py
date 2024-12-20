@@ -10,7 +10,7 @@ driver.get(url)
 sleep(2) 
 iframe = driver.find_element(By.XPATH,'/html/body/div[2]/div[1]/iframe') 
 driver.switch_to_frame(iframe)
-input("start")
+sleep(1)
 posG = [1, 0, 0, 0, 1, 0, 0, 0, 0, 0]
 def gridT(pos):
     
@@ -31,4 +31,7 @@ def canvaT(posC):
         actions.perform()
 
 
-canvaT(posC)
+checkbox = driver.find_element(By.ID,'checkbox')
+
+
+input("end")

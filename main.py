@@ -8,7 +8,7 @@ driver = Driver (uc=True)
 url = "https://democaptcha.com/demo-form-eng/hcaptcha.html" 
 driver.get(url) 
 sleep(2) 
-iframe = driver.find_element(By.XPATH,'/html/body/div[2]/div[1]/iframe') 
+iframe = driver.find_element(By.CSS_SELECTOR,'form  iframe') 
 driver.switch_to_frame(iframe)
 sleep(1)
 posG = [1, 0, 0, 0, 1, 0, 0, 0, 0, 0]
@@ -31,7 +31,8 @@ def canvaT(posC):
         actions.perform()
 
 
-checkbox = driver.find_element(By.ID,'checkbox')
-
+checkbox = driver.find_element(By.XPATH,'//*[@id="checkbox"]')
+checkbox.click()
 
 input("end")
+driver.save_screenshot("main.png")

@@ -11,14 +11,24 @@ sleep(2)
 iframe = driver.find_element(By.XPATH,'/html/body/div[2]/div[1]/iframe') 
 driver.switch_to_frame(iframe)
 input("start")
-pos = [1, 0, 0, 0, 1, 0, 0, 0, 0, 0]
+posG = [1, 0, 0, 0, 1, 0, 0, 0, 0, 0]
 def gridT(pos):
     
     boxes = driver.find_elements(By.XPATH,'/html/body/div/div[1]/div/div/div[2]/div')
     for boxe in range(9):
         if pos[boxe]:
            boxes[boxe].click()
-    
-    
-gridT(pos)
-input("end.")
+           
+posC = [[10, 10], [20, 33]]
+def canvaT(posC):
+    space = driver.find_element(By.XPATH,'/html/body/div/div[1]/div/div/canvas')
+    for pos_ in posC:
+        x = pos_[0]
+        y = pos_[1]
+        actions = ActionChains(driver) 
+        actions.move_to_element_with_offset(space, x, y)
+        actions.click()
+        actions.perform()
+
+
+canvaT(posC)
